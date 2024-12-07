@@ -12,18 +12,110 @@
     </header>
     <form id="quiz-form">
         <h2>1. What is the correct syntax for referring to an external script called "script.js"?</h2>
-        <input type="radio" name="q1" value="a"> <label for="a"> <script src="script.js"></script></label><br>
-        <input type="radio" name="q1" value="b"> <label for="b"> <script name="script.js"></script></label><br>
-        <input type="radio" name="q1" value="c"> <label for="c"> <script href="script.js"></script></label><br>
-        
+        <input type="radio" name="q1" value="a"> <label for="a"> <code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></label><br>
+        <input type="radio" name="q1" value="b"> <label for="b"> <code>&lt;script name="script.js"&gt;&lt;/script&gt;</code></label><br>
+        <input type="radio" name="q1" value="c"> <label for="c"> <code>&lt;script href="script.js"&gt;&lt;/script&gt;</code></label><br>
+
+
         <h2>2. Which of the following is a correct way to define a function in JavaScript?</h2>
         <input type="radio" name="q2" value="a"> <label for="a"> function myFunction() </label><br>
         <input type="radio" name="q2" value="b"> <label for="b"> function:myFunction() </label><br>
         <input type="radio" name="q2" value="c"> <label for="c"> function = myFunction() </label><br>
-        
+
+        <h2>3. What is the correct syntax to output "Hello World" to the console?</h2>
+        <input type="radio" name="q3" value="a"> <label for="a"> console.log("Hello World"); </label><br>
+        <input type="radio" name="q3" value="b"> <label for="b"> print("Hello World"); </label><br>
+        <input type="radio" name="q3" value="c"> <label for="c"> echo("Hello World"); </label><br>
+
+        <h2>4. Which method is used to add an item to the end of an array?</h2>
+        <input type="radio" name="q4" value="a"> <label for="a"> push() </label><br>
+        <input type="radio" name="q4" value="b"> <label for="b"> pop() </label><br>
+        <input type="radio" name="q4" value="c"> <label for="c"> shift() </label><br>
+
+        <h2>5. What is the result of `2 + '2'` in JavaScript?</h2>
+        <input type="radio" name="q5" value="a"> <label for="a"> 22 </label><br>
+        <input type="radio" name="q5" value="b"> <label for="b"> 4 </label><br>
+        <input type="radio" name="q5" value="c"> <label for="c"> Error </label><br>
+
+        <h2>6. What is the output of `console.log(typeof null)`?</h2>
+        <input type="radio" name="q6" value="a"> <label for="a"> "null" </label><br>
+        <input type="radio" name="q6" value="b"> <label for="b"> "object" </label><br>
+        <input type="radio" name="q6" value="c"> <label for="c"> "undefined" </label><br>
+
+        <h2>7. Which of the following is NOT a primitive data type in JavaScript?</h2>
+        <input type="radio" name="q7" value="a"> <label for="a"> Number </label><br>
+        <input type="radio" name="q7" value="b"> <label for="b"> String </label><br>
+        <input type="radio" name="q7" value="c"> <label for="c"> Object </label><br>
+
+        <h2>8. How can you convert a string to a number in JavaScript?</h2>
+        <input type="radio" name="q8" value="a"> <label for="a"> Number("123") </label><br>
+        <input type="radio" name="q8" value="b"> <label for="b"> parseInt("123") </label><br>
+        <input type="radio" name="q8" value="c"> <label for="c"> all of the above </label><br>
+
+        <h2>9. Which operator is used to assign a value to a variable in JavaScript?</h2>
+        <input type="radio" name="q9" value="a"> <label for="a"> = </label><br>
+        <input type="radio" name="q9" value="b"> <label for="b"> == </label><br>
+        <input type="radio" name="q9" value="c"> <label for="c"> === </label><br>
+
+        <h2>10. What does the `===` operator do in JavaScript?</h2>
+        <input type="radio" name="q10" value="a"> <label for="a"> Checks for equality of value and type </label><br>
+        <input type="radio" name="q10" value="b"> <label for="b"> Checks for value equality only </label><br>
+        <input type="radio" name="q10" value="c"> <label for="c"> Checks for object reference equality </label><br>
+
+        <h2>11. How do you create a new object in JavaScript?</h2>
+        <input type="radio" name="q11" value="a"> <label for="a"> let obj = {}; </label><br>
+        <input type="radio" name="q11" value="b"> <label for="b"> let obj = new Object(); </label><br>
+        <input type="radio" name="q11" value="c"> <label for="c"> all of the above </label><br>
+
+        <h2>12. Which function is used to parse a string and return a floating point number?</h2>
+        <input type="radio" name="q12" value="a"> <label for="a"> parseFloat() </label><br>
+        <input type="radio" name="q12" value="b"> <label for="b"> parseInt() </label><br>
+        <input type="radio" name="q12" value="c"> <label for="c"> float() </label><br>
+
         <button type="submit" id="submit-quiz">Submit Quiz</button>
     </form>
-    
-    <script src="script.js"></script>
+
+    <script>
+        // Correct answers for all questions
+        const correctAnswers = {
+            q1: 'a',
+            q2: 'a',
+            q3: 'a',
+            q4: 'a',
+            q5: 'a',
+            q6: 'b',
+            q7: 'c',
+            q8: 'c',
+            q9: 'a',
+            q10: 'a',
+            q11: 'c',
+            q12: 'a'
+        };
+
+        document.getElementById("quiz-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            let score = 0;
+            let explanations = [];
+
+            // Check answers for each question
+            for (let i = 1; i <= 12; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer && answer.value === correctAnswers[`q${i}`]) {
+                    score++;
+                    explanations.push(`Question ${i}: Correct answer is '${answer.nextElementSibling.innerText}'`);
+                } else {
+                    explanations.push(`Question ${i}: Incorrect answer.`);
+                }
+            }
+
+            // Save score and explanations to localStorage
+            localStorage.setItem('score', score);
+            localStorage.setItem('explanations', JSON.stringify(explanations));
+
+            // Redirect to the score page
+            window.location.href = 'score.html';
+        });
+    </script>
 </body>
 </html>
