@@ -15,5 +15,26 @@
         <h3>Correct Answers and Explanations:</h3>
         <ol id="answer-explanations"></ol>
     </section>
+
+    <script>
+        // Retrieve the score and explanations from localStorage
+        const score = localStorage.getItem('score');
+        const explanations = JSON.parse(localStorage.getItem('explanations'));
+
+        // Display the score
+        document.getElementById('score').textContent = score;
+
+        // Display the explanations
+        const explanationsList = document.getElementById('answer-explanations');
+        explanations.forEach(explanation => {
+            const li = document.createElement('li');
+            li.textContent = explanation;
+            explanationsList.appendChild(li);
+        });
+
+        // Optional: Clear the storage for the next quiz attempt
+        localStorage.removeItem('score');
+        localStorage.removeItem('explanations');
+    </script>
 </body>
 </html>
