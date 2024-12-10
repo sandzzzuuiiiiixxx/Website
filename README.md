@@ -27,4 +27,15 @@ My name is **Sanidhya Vashisht**, and I am currently pursuing a **Bachelors in C
 - **JavaScript**: For the dynamic and interactive features of the quiz and the article page.
 - **GitHub Pages**: For hosting this web application.
 
+## OUTPUT
+![Screenshot 2024-12-10 143221](https://github.com/user-attachments/assets/891b2994-d66a-45b9-80e6-1db3d1578eea)
+![Screenshot 2024-12-10 143249](https://github.com/user-attachments/assets/4cb7d4bb-fb45-4f97-a6be-31f46f24080e)
+![Screenshot 2024-12-10 143332](https://github.com/user-attachments/assets/6afc4b3f-09da-4335-b81f-73355419c533)
+![Screenshot 2024-12-10 143428](https://github.com/user-attachments/assets/ddb8a296-581a-4d47-9acd-51c3940bd2f0)
+
+
+
+
+
+
 
