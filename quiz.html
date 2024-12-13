@@ -16,7 +16,6 @@
         <input type="radio" name="q1" value="b"> <label for="b"> <code>&lt;script name="script.js"&gt;&lt;/script&gt;</code></label><br>
         <input type="radio" name="q1" value="c"> <label for="c"> <code>&lt;script href="script.js"&gt;&lt;/script&gt;</code></label><br>
 
-
         <h2>2. Which of the following is a correct way to define a function in JavaScript?</h2>
         <input type="radio" name="q2" value="a"> <label for="a"> function myFunction() </label><br>
         <input type="radio" name="q2" value="b"> <label for="b"> function:myFunction() </label><br>
@@ -75,6 +74,12 @@
         <button type="submit" id="submit-quiz">Submit Quiz</button>
     </form>
 
+    <div id="results" style="display: none;">
+        <h2>Quiz Results</h2>
+        <p id="score"></p>
+        <div id="explanations"></div>
+    </div>
+
     <script>
         // Correct answers for all questions
         const correctAnswers = {
@@ -109,12 +114,13 @@
                 }
             }
 
-            // Save score and explanations to localStorage
-            localStorage.setItem('score', score);
-            localStorage.setItem('explanations', JSON.stringify(explanations));
+            // Display score and explanations
+            document.getElementById('score').innerText = `Your score is: ${score} / 12`;
+            const explanationsDiv = document.getElementById('explanations');
+            explanationsDiv.innerHTML = explanations.join('<br>');
 
-            // Redirect to the score page
-            window.location.href = 'score.html';
+            // Show the results div
+            document.getElementById('results').style.display = 'block';
         });
     </script>
 </body>
